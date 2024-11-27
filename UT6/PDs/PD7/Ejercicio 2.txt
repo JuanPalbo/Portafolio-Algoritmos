@@ -1,0 +1,18 @@
+Un HashMap en Java es una estructura de datos que implementa la interfaz Map, lo que significa que almacena pares clave-valor. Internamente, un HashMap utiliza una tabla de dispersión (hash table) para almacenar los datos. Aquí está cómo funciona:
+1.	Hashing: Cuando se inserta un par clave-valor en un HashMap, se calcula el valor hash de la clave. Este valor hash se utiliza para determinar la ubicación en la tabla de dispersión donde se almacenará el par clave-valor.
+2.	Colisión: Si dos claves diferentes tienen el mismo valor hash (colisión), el HashMap debe resolver este problema. Para manejar colisiones, el HashMap puede utilizar diferentes técnicas, como encadenamiento o resolución de colisiones mediante sondas.
+3.	Tabla de dispersión: La tabla de dispersión en sí misma es un arreglo de listas enlazadas o un arreglo de entradas de tabla de dispersión (buckets). Cada elemento de la tabla apunta a una lista de pares clave-valor (o una entrada de tabla de dispersión) que comparten el mismo valor hash.
+Diagramar la estructura interna de un HashMap puede ser complejo debido a la naturaleza dinámica de la tabla de dispersión y la posibilidad de colisiones. Sin embargo, puedo proporcionar un diagrama simplificado para ilustrar cómo se vería el estado de la estructura después de insertar las strings proporcionadas:
+0 -> null
+1 -> null
+2 -> [HolaMundo -> Hola]
+3 -> [HashMap -> Colecciones]
+4 -> null
+5 -> null
+6 -> null
+7 -> null
+En este diagrama:
+•	Las posiciones de la tabla de dispersión se enumeran del 0 al 9 (para simplificar).
+•	Cada posición de la tabla apunta a una lista enlazada que contiene los pares clave-valor.
+•	Se ha asumido una función de hash que distribuye uniformemente las claves para evitar colisiones en este ejemplo.
+Este diagrama muestra cómo las strings se han almacenado en la estructura interna del HashMap. Por ejemplo, las claves "Hola" y "HolaMundo" comparten el mismo valor hash, por lo que están almacenadas en la misma posición de la tabla de dispersión y se resuelven mediante encadenamiento. Lo mismo ocurre con las claves "HashMap" y "Colecciones".

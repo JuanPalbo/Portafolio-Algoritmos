@@ -1,0 +1,51 @@
+Insertar en Árbol:
+Descripción en lenguaje natural:
+Dado un nodo con un valor comparable y un dato, se le pasa al método del árbol. Comenzando desde la raíz, se inserta el nodo en la posición adecuada.
+
+Precondiciones:
+-Se debe pasar un nodo como parámetro.
+Postcondiciones:
+-Se inserta el nodo en la posición correcta del árbol y devuelve el estado de la inserción (booleano).
+
+Seudo:
+Insertar(elemento de tipo Elemento)
+COMIENZO
+    si el árbol es vacío:
+        raíz <= elemento
+        retornar true
+    retornar raíz.insertar(elemento)
+FIN
+
+Insertar Nodo:
+Descripción en lenguaje natural:
+Dado el nodo pasado al método del árbol, se verifica si es menor o mayor que el nodo actual, hasta llegar al punto deseado de inserción, donde se inserta como hoja.
+
+Precondiciones:
+-Debe ser instanciado por el método del árbol.
+Postcondiciones:
+-Devuelve true si se inserta correctamente.
+-Devuelve false si el nodo ya existe.
+
+Seudo: COMIENZO
+    si elemento > elemento en el árbol:
+        si el hijo izquierdo del elemento en el árbol no es nulo:
+            hijo izquierdo del elemento en el árbol.insertar(elemento)
+        sino:
+            hijo izquierdo del elemento en el árbol <= elemento
+            retornar true
+        
+    si elemento < elemento en el árbol:
+        si el hijo derecho del elemento en el árbol no es nulo:
+            hijo derecho del elemento en el árbol.insertar(elemento)
+        sino:
+            hijo derecho del elemento en el árbol <= elemento
+            retornar true
+
+    retornar false
+FIN
+
+Tiempo de ejecución:
+El tiempo de ejecución del algoritmo depende de la estructura del árbol. Si el árbol está balanceado,
+la altura será aproximadamente logarítmica respecto al número de nodos, resultando en un tiempo de ejecución 
+de O(log n), siendo n el numero de nodos.
+Si el árbol no está balanceado y se convierte en una lista enlazada, la complejidad podría ser O(n)

@@ -1,0 +1,17 @@
+Lenguaje natural para los casos de prueba
+
+Casos de prueba para la función de inserción:
+Para probar la función de inserción de nodos, se deben considerar las siguientes situaciones: 
+el resultado esperado es verdadero. Al insertar un nodo dentro de un subárbol extenso, conocido y como hijo de un nodo perteneciente a dicho subárbol, también debería retornar verdadero. 
+Sin embargo, si el nodo padre no pertenece al subárbol, debería retornar falso. En el caso de un árbol vacío, insertar un nodo con una etiqueta de padre diferente a la cadena vacía resultará en falso, 
+y el árbol permanecerá vacío; pero si la etiqueta del padre es la cadena vacía, el nodo se insertará correctamente y el árbol comenzará a tener una raíz. En un árbol ya formado, insertar un nodo con la etiqueta del padre 
+como cadena vacía debería resultar en que el nodo se convierta en la nueva raíz sin tener ningún hijo ni hermano.
+
+Casos de prueba para la función de búsqueda:
+En las pruebas de la función de búsqueda, se evaluarán los siguientes casos: buscar un nodo específico dentro de un subárbol que efectivamente contenga dicho nodo debería retornar verdadero. 
+Si el nodo no está presente en el subárbol, el resultado debería ser falso. Además, cualquier intento de buscar un nodo en un árbol vacío siempre debe devolver falso.
+
+Casos de prueba para la función listarIndentado:
+Al evaluar la función de listar con indentación, se deben considerar las siguientes situaciones: en un subárbol con un solo nivel distinto de la raíz,
+ todos los elementos deben listarse con la misma indentación. Si el subárbol es extenso y conocido, cada elemento debe listarse con una indentación que 
+ refleje su nivel.En el caso de un árbol vacío, no se debe listar ningún elemento.

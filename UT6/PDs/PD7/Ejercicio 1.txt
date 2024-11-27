@@ -1,0 +1,49 @@
+En Java, la implementación del método hashCode varía entre las clases debido a las diferentes necesidades y estructuras de datos de cada clase.
+
+Implementación del método hashCode en la clase Object:
+En la clase Object, el método hashCode está implementado de manera nativa en C y se encuentra definido en la clase base de todas las clases en Java. La especificación de este método asegura que:
+
+-Debe proporcionar un valor hash para cualquier objeto.
+-El valor hash de un objeto debe ser consistente mientras no se modifiquen las propiedades utilizadas en la implementación del método equals del objeto.
+-Si dos objetos son iguales según el método equals, entonces deben tener el mismo valor hash.
+
+La implementación básica es nativa y a menudo se basa en la dirección de memoria del objeto, garantizando la unicidad relativa del valor hash para 
+diferentes instancias de objetos. El método hashCode en Object se define como:
+public native int hashCode()
+
+
+Implementación del método hashCode en la clase Integer:
+Para la clase Integer, el método hashCode se implementa de manera muy directa y eficiente. Dado que los objetos de tipo Integer son simplemente envoltorios para el tipo primitivo 
+int, el método hashCode simplemente devuelve el valor del entero que encapsulan. La implementación es:
+@Override
+public int hashCode() {
+    return Integer.valueOf(this);
+}
+Esto significa que el valor hash de un objeto Integer es el mismo que el valor del entero que contiene, proporcionando un cálculo rápido y eficiente.
+
+
+Implementación del método hashCode en la clase String:
+La implementación del método hashCode en la clase String es más compleja debido a la naturaleza de las cadenas de caracteres. Se debe asegurar que dos cadenas con el mismo contenido tengan el mismo valor hash y que la distribución de valores hash sea lo suficientemente 
+uniforme para evitar colisiones en estructuras de datos como HashMap. La fórmula para calcular el valor hash de una cadena en Java es la siguiente:
+@Override
+public int hashCode() {
+    int h = 0;
+    int length = value.length;
+    if (h == 0 && length > 0) {
+        char val[] = value;
+
+        for (int i = 0; i < length; i++) {
+            h = 31 * h + val[i];
+        }
+    }
+    return h;
+}
+ value es el arreglo de caracteres que conforman la cadena. Este algoritmo se basa en la fórmula de Horner para 
+ evaluar polinomios, lo que proporciona un buen equilibrio entre eficiencia y distribución uniforme de valores hash.
+
+ Las implementaciones del método hashCode son diferentes debido a las necesidades específicas de cada tipo de dato:
+
+- Object: La implementación en Object es genérica y debe funcionar para cualquier objeto. Utiliza un método nativo para proporcionar un valor hash basado en la dirección de memoria u otros identificadores únicos de la JVM.
+- Integer: La implementación en Integer es directa y rápida porque los valores enteros ya son adecuados como valores hash, eliminando la necesidad de un cálculo adicional.
+- String: La implementación en String es más elaborada porque debe considerar la secuencia de caracteres que compone la cadena. Utiliza una fórmula que asegura que cadenas con los mismos caracteres en el mismo orden generen el mismo valor hash y 
+  busca minimizar colisiones en estructuras de datos que dependen de los valores hash.

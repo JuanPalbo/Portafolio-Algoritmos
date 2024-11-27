@@ -1,0 +1,38 @@
+Clase Alumno {
+    Atributo privado int ID
+    Atributo privado String fullName
+    Atributo privado String email
+
+    Constructor Alumno(int ID, String fullName, String email) {
+        Asignar ID a this.ID
+        Asignar fullName a this.fullName
+        Asignar email a this.email
+    }
+
+    Método sobrescrito equals(Object obj) retorna boolean {
+        Si this es igual a obj entonces
+            Retornar verdadero
+        Fin Si
+
+        Si obj es nulo o la clase de obj es diferente a la clase de this entonces
+            Retornar falso
+        Fin Si
+
+        Alumno alumno = (Alumno) obj
+        Retornar this.ID es igual a alumno.ID Y
+                 objetosIguales(this.fullName, alumno.fullName) Y
+                 objetosIguales(this.email, alumno.email)
+    }
+
+    Método sobrescrito hashCode() retorna int {
+        Retornar hashDeObjetos(this.ID, this.fullName, this.email)
+    }
+}
+
+Función objetosIguales(obj1, obj2) retorna boolean {
+    // Implementación de comparación de igualdad entre obj1 y obj2
+}
+
+Función hashDeObjetos(valores...) retorna int {
+    // Implementación de cálculo de hash basada en los valores
+}

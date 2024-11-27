@@ -1,0 +1,40 @@
+cantNodosNivel(nivelBuscado de tipo numerico, nivel de tipo numerico) ARBOL
+lenguaje natural: dado un árbol que instancie esta función, se devuelve la cantidad de nodos en un nivel dado por parametro
+precondiciones:
+
+postcondiciones:
+    - Devuelve la cantidad de nodos del nivel dado por parametro
+
+pseudocodigo:
+
+ContarHojas()
+COM
+    si es vacio:
+        retorna 0;
+    retornar raiz.cantNodosNivel()
+FIN
+
+cantNodosNivel(nivelBuscado de tipo numerico, nivel de tipo numerico) Nodo
+lenguaje natural: dado por el llamado del árbol se ejecuta a partir de la raíz recorriendo los elementos del arbol hasta llegar 
+precondiciones:
+    - debe de ser instanciado por el método del árbol
+postcondiciones:
+    - Devuelve la cantidad de nodos del nivel dado por parametro
+
+pseudocodigo:
+COM
+    si nivelBuscado = nivel:
+        retornar 1;
+    sino:
+        si this.hijoIzq <> nulo:
+            cont += this.hijoIzq.cantNodosNivel()
+
+        si this.hijoDer <> nulo:
+            cont += this.hijoDer.cantNodosNivel()
+
+        return cont;
+FIN
+
+tiempo de ejecución:
+El tiempo de ejecución del algoritmo del árbol depende del algoritmo del nodo,
+En todos los casos el algoritmo va a ser de o(N) ya que tiene que recorrer todo el árbol para llegar a todas las hojas en el peor de los casos.

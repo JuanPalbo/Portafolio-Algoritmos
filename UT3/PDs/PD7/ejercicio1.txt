@@ -1,0 +1,87 @@
+Desarrolla  los  algoritmos  para  implementar  las  operaciones  de  Union    e  Intersección  sobre  el  TDA  LISTA,
+utilizado para representar un CONJUNTO. Los conjuntos de entrada se encuentran ordenados.
+Debes seguir las normas para desarrollo de algoritmos en seudocódigo brindadas en el curso:
+• especificación en lenguaje natural,
+• pre y post condiciones,
+• seudocódigo y
+• especificación de casos de prueba.
+• Analiza detalladamente el orden del tiempo de ejecución de estos algoritmos.
+
+
+UNION
+lenguaje natural:
+segun los conjuntos dados (uno por parametro y otro por invocacion del metodo) crear un nuevo conjunto con todos los elementos de A y B.
+La misma tendra 2 variables, el nodo actual y el a insertar, se recorrera toda la lista del primero y se insertara en la lista
+luego, al finalizar, arranca el conjunto dado por parametro, si el elementos no se encuentra en el nuevo conjutno se agrega
+de lo contrario, si estaba en el conjunto pasa al siguiente.
+
+precondiciones:
+-
+
+precondiciones:
+- se devuelve el nuevo conjunto con la union de los 2 anteriores conjuntos
+
+pseudocodigo:
+
+union(otroConjunto del tipo conjunto)
+com
+  actual <- primero
+  nodo a insertar <- null
+  union <- nuevo conjunto
+
+  mientras actual != nulo
+    insertar a union el elemento actual
+    actual <- siguiente del actual
+  fin mientras
+
+  actual <- primero de otroConjunto
+
+  mientras actual != nulo
+    nodo a insertar <- buscar en union el elemento de actual
+    si nodo a insertar = nulo
+      insertar a union el elemento actual
+    fin si
+    actual <- siguiente del actual
+  fin mientras
+  retornar union
+fin
+
+El algoritmo es de O(N) ya que se debe de recorrer todo la lista y luego toda la otra, pero no a la vez
+
+
+
+Intersección
+lenguaje natural:
+segun los conjuntos dados (uno por parametro y otro por invocacion del metodo) crear un nuevo conjunto con los elementos que esten en A y B
+se compara cada elemento del primer conjunto con cada elemento del segundo conjunto para ver si se encuentran repetidos
+si es asi, se agrega al nuevo conjunto. al finalizar se retorna el nuevo conjunto
+
+precondiciones:
+- no debe haber repetidos
+
+precondiciones:
+- se devuelve el nuevo conjunto con la Intersección de los 2 anteriores conjuntos
+
+pseudocodigo:
+
+interseccion(otroConjunto del tipo conjunto)
+com
+  actual <- primero
+  nodo a insertar <- null
+  interseccion <- nuevo conjunto
+
+  mientras actual != nulo
+    nodo a insertar <- bucar dentro de otroConjunto el elemento actual
+
+    si nodo a insertar != nulo
+      intertar a interseccion el elemento nodo a insertar
+    fin si
+
+    actul <- siguiente al actual
+  fin mientras
+  retornar interseccion
+fin
+
+El algoritmo es de O(N**2) ya que en el peor de los casos se se tiene que recorrer la lista dentro de otra lista arbitrariamente grandes.
+
+

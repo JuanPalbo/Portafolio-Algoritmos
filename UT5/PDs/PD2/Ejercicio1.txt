@@ -1,0 +1,53 @@
+Lenguaje natural
+El algoritmo debe recibir un texto, identificar y separar sus palabras según los espacios. 
+Para cada palabra, debe insertar cada una de sus letras en el trie si no están presentes, o seguir el camino correspondiente si ya existen. 
+Al llegar al final de la palabra, si esta no se encontraba en el trie, se debe marcar como una palabra completa. 
+En cualquier caso, se debe añadir el número de página a la lista de posiciones de esa palabra.
+
+Precondiciones:
+-El trie no puede ser nulo.
+-Se cuenta con un texto y un número de página actual.
+
+Postcondiciones:
+- El texto ha sido insertado e indexado por palabra dentro del subarbol.
+
+Seudocodigo:
+
+COMIENZO
+const cantidadDeCaracteresPorPagina <- 1000
+
+Tipo NodoTrie {
+    NodoTrie hijos[26] 
+    Lista<int> paginas <- nueva Lista<int>
+    boolean esPalabra <- falso
+}
+
+Tipo Trie {
+    NodoTrie raiz <- nuevo NodoTrie()
+
+    insertarPalabras(Tipo String texto, Tipo int numeroDePagina)
+        Tipo StringArray textoSeparado <- texto.separar(" ")
+        PARA CADA palabra EN textoSeparado HACER:
+            nodo <- raiz
+            PARA CADA c EN palabra HACER:
+                indice <- c.toInt - 'a'.toInt
+                SI (nodo.hijos[indice] = nulo) ENTONCES
+                    nodo.hijos[indice] <- nuevo NodoTrie
+                FIN SI
+                nodo <- nodo.hijos[indice]
+            FIN PARA CADA
+            nodo.esPalabra <- Verdadero
+            SI no (nodo.paginas.contiene(numeroDePagina)) ENTONCES
+                nodo.paginas.insertar(numeroDePagina)
+            FIN SI
+        FIN PARA CADA
+}
+FIN
+
+Analisis de tiempo de ejecución:
+El tiempo de ejecución del algoritmo es O(N), donde N es el número total de caracteres en el texto. 
+
+a- 8
+b- 12
+c- 9
+d y e-  Tendra altura 12 y tamaño 46

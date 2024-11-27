@@ -1,0 +1,20 @@
+Seudocodigo:
+COMIENZO
+Tipo Lista<int> buscar(Tipo String s)
+    nodoActual <- this.raiz
+    PARA CADA car EN s HACER:
+        indice <- car.toInt - 'a'.toInt
+        unHijo <- nodoActual.hijos[indice]
+        SI (unHijo = nulo) ENTONCES
+            devolver nulo
+        SINO
+            nodoActual <- unHijo
+        FIN SI
+    FIN PARA CADA
+
+    SI (nodoActual.esPalabra) ENTONCES
+        devolver nodoActual.paginas
+    FIN SI
+    devolver nulo
+FIN
+
